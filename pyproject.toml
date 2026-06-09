@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "news-summarizer"
-version = "0.1.0"
+version = "0.3.0"
 description = "Silver layer over news-aggregator: cluster, summarize, understand, update."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,6 +17,8 @@ dependencies = [
     "pydantic>=2.5.0",
     "tenacity>=8.2.0",
     "numpy>=1.26.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.27.0",
 ]
 
 [project.optional-dependencies]
@@ -36,6 +38,8 @@ embed = [
 
 [project.scripts]
 news-summarizer = "news_summarizer.cli:main"
+news-summarizer-http = "news_summarizer.server_http:main"
+news-summarizer-mcp = "news_summarizer.server_mcp:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
